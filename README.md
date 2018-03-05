@@ -13,12 +13,7 @@ Youtube 官方提供了自动字幕翻译成中文字幕的功能，
 2. 安装 [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
 3. [安装『Youtube 自动字幕翻译成中文后的字幕下载 v1』](https://greasyfork.org/zh-CN/scripts/39188-youtube-%E8%87%AA%E5%8A%A8%E5%AD%97%E5%B9%95%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%90%8E%E7%9A%84%E5%AD%97%E5%B9%95%E4%B8%8B%E8%BD%BD-v1)
 
-## 使用方法
-在任意 Youtube 播放页面，播放窗口下方会有绿色按钮，点击即可。
-![1](img/1.png)
+## 使用演示
 ![1](img/2.jpg)
-![1](img/3.jpg)
-
-## 下载演示
 ![1](img/6677.png)
 ![1](img/7788.png)
