@@ -443,9 +443,9 @@ function get_file_name(){
         }else{
             video_name = youtube_playerResponse_1c7.videoDetails.title;
         }
-        return "翻译中字" + get_auto_subtitle_name() + video_name + '.srt';
+        return get_auto_subtitle_name() + video_name + '.翻译中字.srt';
     } else {
         var TITLE = unsafeWindow.ytplayer.config.args.title;
-        return "翻译中字" + get_auto_subtitle_name() + TITLE + '.srt';
+        return get_auto_subtitle_name() + TITLE + '.翻译中字.srt';
     }
 }
