@@ -36,7 +36,5 @@ https://www.zhihu.com/question/19647719/answer/16843974
 （2018年3月5号写的这个）        
 
 ### 如果你需要其他的字幕下载
-* [下载自动字幕](https://greasyfork.org/zh-CN/scripts/5367-youtube-auto-subtitle-downloader-v15)
-* [下载自动字幕翻中文字幕](https://greasyfork.org/zh-CN/scripts/39188-youtube-%E8%87%AA%E5%8A%A8%E5%AD%97%E5%B9%95%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%90%8E%E7%9A%84%E5%AD%97%E5%B9%95%E4%B8%8B%E8%BD%BD-v1)
-* [下载完整字幕](https://greasyfork.org/zh-CN/scripts/5368-youtube-subtitle-downloader-v14)
-* [下载完整字幕翻中文字幕](https://greasyfork.org/zh-CN/scripts/38941-youtube-%E7%BF%BB%E8%AF%91%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%E4%B8%8B%E8%BD%BD-v1)
+* [下载完整字幕和自动字幕](https://greasyfork.org/zh-CN/scripts/5368-youtube-subtitle-downloader-v20)
+
