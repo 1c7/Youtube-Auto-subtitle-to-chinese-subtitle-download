@@ -5,6 +5,7 @@
 // @require      http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js
 // @version      1
 // @namespace    https://greasyfork.org/users/5711
+// @run-at document-end
 // ==/UserScript==
 
 // 作者  : Cheng Zheng
