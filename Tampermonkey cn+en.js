@@ -1,23 +1,17 @@
 // ==UserScript==
-// @name         Youtube 自动字幕翻译成中文后的字幕下载
-// @description  Youtube 播放右下角的齿轮选项中，提供了自动字幕翻译中文字幕，这个工具可以下载这个翻译后的中文字幕
+// @name         (中英双语) Youtube 自动字幕翻译成中文后的字幕下载
+// @description  Youtube 播放右下角的齿轮选项中，提供了自动字幕翻译中文字幕，这个工具可以下载这个翻译后的中文字幕+英语字幕，双语。
 // @include      https://*youtube.com/*
 // @require      http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js
-// @version      3
+// @version      1
 // @namespace    https://greasyfork.org/users/5711
 // @run-at document-end
 // ==/UserScript==
 
-// 作者  : Cheng Zheng
+// 作者    : Cheng Zheng
 // 新浪微博 : 糖醋陈皮
 // Email   : guokrfans@gmail.com
-// Github  : https://github.com/1c7/Youtube-Auto-subtitle-to-chinese-subtitle-download/
-
-// 99%代码来自 https://greasyfork.org/zh-CN/scripts/5367-youtube-auto-subtitle-downloader-v15
-// (那个也是我写的)】
-// 唯一改了的地方就是获取字幕地址的部分
-
-// 2019-10-16 从 v1 升级到 v2, 只修改了文件名命名规则，该建议来自：https://greasyfork.org/zh-CN/forum/discussion/63490/x
+// QQ      : 1003211008
 
 // ===============================================
 

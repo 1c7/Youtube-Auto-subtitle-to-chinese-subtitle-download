@@ -1,4 +1,5 @@
 # 下载 Youtube 自动字幕翻译中文字幕
+[Greasy Fork 安装地址](https://greasyfork.org/zh-CN/scripts/39188-youtube-%E8%87%AA%E5%8A%A8%E5%AD%97%E5%B9%95%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%90%8E%E7%9A%84%E5%AD%97%E5%B9%95%E4%B8%8B%E8%BD%BD)
 
 ### 解决什么问题：        
 Youtube 官方提供了自动字幕翻译成中文字幕的功能，   
