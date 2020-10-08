@@ -8,6 +8,15 @@
 // @run-at document-end
 // ==/UserScript==
 
+// 在另一个 repo 里把代码完成了，这个文件理论上完全没用了，但是先不删，放着。
+
+// 获取自动字幕(一般是英文) + 翻译后的中文
+// 格式: 中文 \N 英文
+// 也就是中文在前，然后 \N 是一个换行符，然后英文在下一行
+
+// 2020-10-7 00:14 看来中英文的时间戳是不一样的，不是一个简单的  match 就完事了。
+// 再调试一下 Youtube 的 API，看看发出的请求和收到的响应，能不能弄到 timestamp match 的字幕。
+
 // 作者    : Cheng Zheng
 // 新浪微博 : 糖醋陈皮
 // Email   : guokrfans@gmail.com
@@ -195,11 +204,12 @@ function no_subtitle_button() {
     }
 }
 
+// 下载按钮
 function normal_subtitle_button() {
     if (new_material_design_version()) {
         var title_element = document.querySelectorAll('.title.style-scope.ytd-video-primary-info-renderer');
         if (title_element) {
-            $(title_element[0]).after('<a id="YT_auto">' + '下载 『' + auto_subtitle_language_name + '』 翻译成中文后的字幕</a>');
+            $(title_element[0]).after('<a id="YT_auto">' + '下载 "' + auto_subtitle_language_name + '" + "翻译成中文"的双语字幕</a>');
         }
         $("#YT_auto").css('margin-top', '2px')
             .css('position', 'relative')
@@ -219,7 +229,7 @@ function normal_subtitle_button() {
             .css('background-color', '#00B75A')
             .css('display', 'inline-block');
     } else {
-        $('#watch-headline-title').after('<a id="YT_auto">' + '下载 『' + auto_subtitle_language_name + '』 翻译成中文后的字幕</a>');
+        $('#watch-headline-title').after('<a id="YT_auto">' + '下载 "' + auto_subtitle_language_name + '" + "翻译成中文"的双语字幕</a>');
         $('#YT_auto').addClass('start yt-uix-button yt-uix-button-text yt-uix-tooltip'); // 样式是 Youtube 自带的.
         $("#YT_auto").css('margin-top', '4px')
             .css('padding-top', '2px')
@@ -238,13 +248,16 @@ function normal_subtitle_button() {
     }
 }
 
+// 初始化
 function init() {
     first_load = false;
     if (auto_subtitle_exist()) {
         auto_subtitle_language_name = get_auto_subtitle_name();
         normal_subtitle_button();
         var button_element = $("#YT_auto");
-        if (getChromeVersion() > 52) {
+        var chrome_version = getChromeVersion()
+        console.log(`获取到的 Chrome  版本是 ${chrome_version}`)
+        if (chrome_version > 52) {
             button_element.attr('download', get_file_name());
             button_element.attr('href', 'data:Content-type: text/plain,' + get_subtitle());
         } else {
@@ -282,7 +295,44 @@ function get_auto_subtitle_xml_url() {
     return null;
 }
 
+// 获取字幕
+// 输入：
+// 输出：
+// TODO 
 function get_subtitle() {
+    var ajax_url = get_auto_subtitle_xml_url();
+    if (ajax_url === null) {
+        // hint: no auto subtitle;
+        console.log('can not get auto subtitle xml URL');
+        return false;
+    }
+    var SRT_subtitle = "<content will be replace>";
+    var auto_subtitle_translate_to_chinese_url = ajax_url + '&tlang=zh-Hans';
+    // 这里是核心点，拿到 auto 字幕的 URL 之后加个 &tlang=zh-Hans 就行了。
+    var url = auto_subtitle_translate_to_chinese_url;
+    console.log("自动字幕的地址是: ");
+    console.log(url);
+    $.ajax({
+        url: url,
+        type: 'get',
+        async: false,
+        error: function (r) {
+            console.log("Auto Subtitle Download: Ajax Error");
+        },
+        success: function (r) {
+            console.log('获得的结果是:');
+            console.log(r);
+            console.log(parseYoutubeXMLToSRT(r));
+            // SRT_subtitle = parseYoutubeXMLToSRT(r);
+        }
+    });
+    // 返回的是什么？
+    console.log("get_subtitle 返回的是: ");
+    console.log(SRT_subtitle);
+    return SRT_subtitle;
+}
+
+function get_CN_subtitle() {
     var ajax_url = get_auto_subtitle_xml_url();
     if (ajax_url === null) {
         // hint: no auto subtitle;
@@ -303,6 +353,36 @@ function get_subtitle() {
             SRT_subtitle = parseYoutubeXMLToSRT(r);
         }
     });
+    // 返回的是什么？
+    console.log("get_subtitle 返回的是: ");
+    console.log(SRT_subtitle);
+    return SRT_subtitle;
+}
+
+
+function get_EN_subtitle() {
+    var ajax_url = get_auto_subtitle_xml_url();
+    if (ajax_url === null) {
+        // hint: no auto subtitle;
+        console.log('can not get auto subtitle xml URL');
+        return false;
+    }
+    var SRT_subtitle = "<content will be replace>";
+    var auto_subtitle_translate_to_chinese_url = ajax_url;
+    $.ajax({
+        url: auto_subtitle_translate_to_chinese_url,
+        type: 'get',
+        async: false,
+        error: function (r) {
+            console.log("Auto Subtitle Download: Ajax Error");
+        },
+        success: function (r) {
+            SRT_subtitle = parseYoutubeXMLToSRT(r);
+        }
+    });
+    // 返回的是什么？
+    console.log("get_subtitle 返回的是: ");
+    console.log(SRT_subtitle);
     return SRT_subtitle;
 }
 
